@@ -1,0 +1,30 @@
+VALORANT TEAM MANAGER 4.1 — CORREÇÃO DE CONEXÃO
+
+ARQUIVOS
+- index.html: aplicativo corrigido.
+- supabase.sql: estrutura e funções RPC que o HTML utiliza.
+
+IMPORTANTE
+Esta versão substitui o HTML 4.0 anterior e inclui o SQL correspondente. O SQL anterior precisa ser atualizado para criar as funções ausentes.
+
+INSTALAÇÃO NO SUPABASE
+1. Abra o projeto correto no Supabase.
+2. Entre em SQL Editor > New query.
+3. Cole TODO o conteúdo de supabase.sql e execute.
+4. Se aparecer erro, pare e guarde a mensagem completa. Não execute repetidamente.
+
+CONFIGURAÇÃO DO SITE
+1. Abra index.html em hospedagem HTTPS (Netlify, Vercel ou GitHub Pages). Não use file:// para convites entre dispositivos.
+2. No formulário, informe a Project URL no formato https://SEU-PROJETO.supabase.co (sem /rest/v1) e a Publishable key.
+3. Clique Conectar e depois Salvar neste navegador.
+4. Crie a sala. O link privado contém o token da Equipe B; envie somente ao capitão adversário.
+
+COMO SINCRONIZA
+O aplicativo consulta o estado da sala a cada ~2,2 segundos. Isso é atualização quase em tempo real por polling, não Supabase Realtime.
+
+SEGURANÇA / LIMITAÇÕES
+- Nunca coloque Secret key ou service_role no HTML.
+- O token privado do convite dá acesso de capitão à Equipe B; compartilhe apenas com o adversário.
+- A tabela não é diretamente legível pelo navegador; as operações passam por funções RPC que validam tokens.
+- O pool de mapas no HTML é provisório e deve ser conferido/ajustado à rotação competitiva vigente antes de partidas oficiais.
+- Esta é uma versão de teste; ainda precisa de validação em dois dispositivos e revisão antes de uso competitivo/produção.
